@@ -222,18 +222,6 @@ function laygb() {
     setTimeout(laygb, 1000)
 }
 
-function ckbl() {
-    if (visibl) {
-        const controller = new AbortController();
-        setTimeout(() => controller.abort(), 2000);
-        fetch("https://twitter.com/", { signal: controller.signal, method: "HEAD", cache: "no-store", mode: 'no-cors', referrerPolicy: 'no-referrer' })
-            .then(function() {
-                document.getElementById("laygb").style.color = "green";
-            })
-            .catch(error => document.getElementById("laygb").style.color = "red");
-    }
-    setTimeout(ckbl, 1000)
-}
 
 function ckip(ip, tag) {
     if (checkIP) {
@@ -250,7 +238,6 @@ ipcn()
 ipgb()
 laycn()
 laygb()
-ckbl()
 
 document.addEventListener("visibilitychange", function() {
     var string = document.visibilityState
@@ -260,7 +247,7 @@ document.addEventListener("visibilitychange", function() {
     }
     if (string === 'visible') {
         visibl = true
-        document.title = "网络面板"
+        document.title = "流量黑洞"
     }
 });
 
